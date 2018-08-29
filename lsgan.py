@@ -1,5 +1,16 @@
+import argparse
+parser = argparse.ArgumentParser(description='Train Least Square GAN.')
+parser.add_argument('path', type=str, help='Path to the LSUN images in a format readable by scipy.misc.')
+parser.add_argument('--in_size', default=112, type=int, help='Image size to be reshaped into.')
+parser.add_argument('--out_size', default=112, type=int, help='Image size to be output.')
+parser.add_argument('--bs', type=int, default=64, help='Batchsize.')
+parser.add_argument('--n_iters', type=int, default=int(1e6), help='Number of iterations.')
+parser.add_argument('--gpu', type=str, default='0', help='Which GPU to use.')
+
+args = parser.parse_args()
+
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
 import theano
 from theano import tensor as T
 import numpy as np
@@ -165,4 +176,4 @@ def train(input_shape, output_size, image_path, bs=64, z_dim=1024, n_iters=int(1
 
 
 if __name__ == '__main__':
-    train((112, 112, 3), 112, 'D:/1_Share/LSUN/church_outdoor_train_lmdb/data')
+    train((args.in_size, args.in_size, 3), args.out_size, args.path, bs=args.bs, z_dim=1024, n_iters=args.n_iters)
