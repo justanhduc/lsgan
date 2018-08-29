@@ -17,6 +17,8 @@ python lsgan.py path-to-a-folder-of-images (--in_size 112) (--out_size 112) (--b
 
 ## Results
 
+The following examples are produced @iter 117k when training with the LSUN church outdoor dataset.
+
 ![LSUN church outdoor @iter 117k](https://github.com/justanhduc/lsgan/blob/master/samples/examples.png)
 
 ## Credits
