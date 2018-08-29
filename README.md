@@ -3,7 +3,7 @@ A replication of Least Square GAN
 
 ## Requirements
 
-[Theano](http://deeplearning.net/software/theano/)
+[Theano](http://deeplearning.net/software/theano/) (latest)
 
 [neuralnet](https://github.com/justanhduc/neuralnet)
 
@@ -12,7 +12,7 @@ A replication of Least Square GAN
 ## Usage
 
 ```
-python lsgan.py
+python lsgan.py path-to-a-folder-of-images (--in_size 112) (--out_size 112) (--bs 64) (--n_iters 10000000) (--gpu 0)
 ```
 
 ## Results
